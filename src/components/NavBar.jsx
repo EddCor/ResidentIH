@@ -4,10 +4,13 @@ const NavBar = () => {
   return (
     <nav>
       <Link to="/">
-        <button>Home</button>
+        <button>Umbrella LABs</button>
       </Link>
       <Link to="/scene/1">
-        <button>Scene</button>
+        <button>Arklay Mansion</button>
+      </Link>
+      <Link to="/scene/1">
+        <button>Raccon City</button>
       </Link>
       <Link to="/createnewstory/">
         <button>Create new story</button>
