@@ -85,9 +85,6 @@ const UpdateForm = () => {
       console.error("An error occurred:", error);
     }
   };
-  if (scenes.length === 0) {
-    return <div>Loading...</div>;
-  }
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
