@@ -16,7 +16,17 @@ const HomePage = () => {
     fetchAllScenes();
   }, []);
 
-  return <h1>Welcome Resident IronHack</h1>;
+  if (scenes.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <h1>Welcome Resident IronHack</h1>
+      <h2>{scenes[0].title}</h2>
+      <img src={scenes[0].imgsrc} style={{ maxWidth: "100vw" }} />
+    </div>
+  );
 };
 
 export default HomePage;
