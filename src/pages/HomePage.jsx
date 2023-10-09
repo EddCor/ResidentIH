@@ -20,13 +20,31 @@ const HomePage = () => {
     return <div>Loading...</div>;
   }
 
+
+  if (scenes.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+
+  if (scenes.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div>
-      <h1>Welcome Resident IronHack</h1>
-      <h2>{scenes[0].title}</h2>
-      <img src={scenes[0].imgsrc} style={{ maxWidth: "100vw" }} />
-    </div>
-  );
+  <div>
+  
+  <h1>Welcome Resident IronHack</h1>
+  <h2>{scenes[0].title}</h2>
+  <img src={scenes[0].imgsrc} style={{ maxWidth: '100vw' }} />
+  {scenes[0].description.map(oneLine => {
+    return (
+      <>
+<p>{oneLine}</p>
+</>
+  )})}
+ 
+  </div>
+  )
 };
 
 export default HomePage;
