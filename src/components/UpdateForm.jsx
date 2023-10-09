@@ -54,6 +54,13 @@ const UpdateForm = () => {
     setEditedDescription(updatedDescription);
   };
 
+  const handleCancelClick = () => {
+    setIsEditing(false);
+    setEditedTitle("");
+    setEditedImageURL("");
+    setEditedDescription(scenes[selectScene].description || []);
+  };
+
   const sendUpdatesToAPI = async (updatedData) => {
     try {
       const response = await fetch(
@@ -88,18 +95,21 @@ const UpdateForm = () => {
 
   return (
     <>
-      <h2>some whatever</h2>
-      <label htmlFor="scene-select">Choose a scene to edit:</label>
-      <select name="scene" id="scene-select" onChange={handleSceneSelect}>
-        {selectScene === undefined && (
-          <option value="">--Please choose an option--</option>
-        )}
-        {scenes.map((scene, index) => (
-          <option key={scene.id} value={index + 1}>
-            {scene.title}
-          </option>
-        ))}
-      </select>
+      {!isEditing && (
+        <>
+          <label htmlFor="scene-select">Choose a scene to edit:</label>
+          <select name="scene" id="scene-select" onChange={handleSceneSelect}>
+            {selectScene === undefined && (
+              <option value="">--Please choose an option--</option>
+            )}
+            {scenes.map((scene, index) => (
+              <option key={scene.id} value={index + 1}>
+                {scene.title}
+              </option>
+            ))}
+          </select>
+        </>
+      )}
       {selectScene !== undefined && (
         <>
           {isEditing ? (
@@ -149,6 +159,7 @@ const UpdateForm = () => {
 
               <button onClick={handleAddDescription}>Add Description</button>
               <button onClick={handleSaveClick}>Save</button>
+              <button onClick={handleCancelClick}>Cancel</button>
             </>
           ) : (
             <>
