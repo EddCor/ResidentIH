@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const UpdateForm = () => {
   const [scenes, setScenes] = useState([]);
@@ -9,6 +8,7 @@ const UpdateForm = () => {
   const [editedImageURL, setEditedImageURL] = useState("");
   const [editedDescription, setEditedDescription] = useState([]);
   const [newDescription, setNewDescription] = useState("");
+  const [titleFromStoraga, setTitleFromStoraga] = useState();
 
   const fetchAllScenes = async () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/scenes`);
@@ -60,6 +60,7 @@ const UpdateForm = () => {
     setEditedTitle("");
     setEditedImageURL("");
     setEditedDescription(scenes[selectScene].description || []);
+    setSelectScene(undefined);
   };
 
   const sendUpdatesToAPI = async (updatedData) => {
@@ -86,37 +87,6 @@ const UpdateForm = () => {
     }
   };
 
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    const payload = { title, description };
-
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/projects${
-          isUpdate ? `/${project.id}` : ""
-        }`,
-        {
-          method: isUpdate ? "PUT" : "POST",
-          body: JSON.stringify(payload),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
-      console.log(response);
-      if (response.ok) {
-        const currentProject = await response.json();
-        console.log(currentProject);
-        navigate(`/projects/${currentProject.id}`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     fetchAllScenes();
   }, []);
@@ -135,7 +105,11 @@ const UpdateForm = () => {
               <option value="">-Please choose an option-</option>
             )}
             {scenes.map((scene, index) => (
-              <option key={scene.id} value={index + 1}>
+              <option
+                selected={scene.id === selectScene ? true : false}
+                key={scene.id}
+                value={index + 1}
+              >
                 {scene.title}
               </option>
             ))}
