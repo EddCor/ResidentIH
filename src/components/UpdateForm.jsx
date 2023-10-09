@@ -132,7 +132,7 @@ const UpdateForm = () => {
           <label htmlFor="scene-select">Choose a scene to edit:</label>
           <select name="scene" id="scene-select" onChange={handleSceneSelect}>
             {selectScene === undefined && (
-              <option value="">--Please choose an option--</option>
+              <option value="">-Please choose an option-</option>
             )}
             {scenes.map((scene, index) => (
               <option key={scene.id} value={index + 1}>
