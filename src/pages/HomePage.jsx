@@ -35,7 +35,7 @@ const HomePage = () => {
   
   <h1>Welcome Resident IronHack</h1>
   <h2>{scenes[0].title}</h2>
-  <img src={scenes[0].imgsrc} style={{ maxWidth: '100vw' }} />
+  <img src={scenes[0].imgsrc} style={{ maxWidth: '50vw' }} />
   {scenes[0].description.map(oneLine => {
     return (
       <>
