@@ -47,6 +47,13 @@ const UpdateForm = () => {
     setNewDescription("");
   };
 
+  const handleDeleteDescription = (indexToDelete) => {
+    const updatedDescription = editedDescription.filter(
+      (_, index) => index !== indexToDelete
+    );
+    setEditedDescription(updatedDescription);
+  };
+
   const sendUpdatesToAPI = async (updatedData) => {
     try {
       const response = await fetch(
@@ -84,7 +91,9 @@ const UpdateForm = () => {
       <h2>some whatever</h2>
       <label htmlFor="scene-select">Choose a scene to edit:</label>
       <select name="scene" id="scene-select" onChange={handleSceneSelect}>
-        <option value="">--Please choose an option--</option>
+        {selectScene === undefined && (
+          <option value="">--Please choose an option--</option>
+        )}
         {scenes.map((scene, index) => (
           <option key={scene.id} value={index + 1}>
             {scene.title}
@@ -107,18 +116,37 @@ const UpdateForm = () => {
               />
               <h3>Description:</h3>
               {editedDescription.map((desc, index) => (
-                <textarea
+                <div
                   key={index}
-                  value={desc}
-                  onChange={(e) => {
-                    const updatedDescription = [...editedDescription];
-                    updatedDescription[index] = e.target.value;
-                    setEditedDescription(updatedDescription);
-                  }}
-                  rows={10}
-                  cols={50}
-                />
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <textarea
+                    value={desc}
+                    onChange={(e) => {
+                      const updatedDescription = [...editedDescription];
+                      updatedDescription[index] = e.target.value;
+                      setEditedDescription(updatedDescription);
+                    }}
+                    rows={10}
+                    cols={50}
+                    style={{ paddingRight: "30px" }}
+                  />
+                  <button
+                    onClick={() => handleDeleteDescription(index)}
+                    style={{
+                      marginLeft: "10px",
+                      padding: "2px 5px",
+                      backgroundColor: "red",
+                      color: "white",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
               ))}
+
               <button onClick={handleAddDescription}>Add Description</button>
               <button onClick={handleSaveClick}>Save</button>
             </>
