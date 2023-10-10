@@ -8,7 +8,6 @@ const UpdateForm = () => {
   const [editedImageURL, setEditedImageURL] = useState("");
   const [editedDescription, setEditedDescription] = useState([]);
   const [newDescription, setNewDescription] = useState("");
-  const [titleFromStoraga, setTitleFromStoraga] = useState();
 
   const fetchAllScenes = async () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/scenes`);
@@ -19,7 +18,7 @@ const UpdateForm = () => {
   };
 
   const handleSceneSelect = (e) => {
-    const selectedId = e.target.value - 1;
+    const selectedId = parseInt(e.target.value);
     setSelectScene(selectedId);
     setIsEditing(false);
     setEditedTitle("");
@@ -100,15 +99,19 @@ const UpdateForm = () => {
       {!isEditing && (
         <>
           <label htmlFor="scene-select">Choose a scene to edit:</label>
-          <select name="scene" id="scene-select" onChange={handleSceneSelect}>
+          <select
+            name="selectScene"
+            id="scene-select"
+            onChange={handleSceneSelect}
+          >
             {selectScene === undefined && (
               <option value="">-Please choose an option-</option>
             )}
             {scenes.map((scene, index) => (
               <option
-                selected={scene.id === selectScene ? true : false}
+                //selected={scene.id === selectScene ? true : false}
                 key={scene.id}
-                value={index + 1}
+                value={index}
               >
                 {scene.title}
               </option>

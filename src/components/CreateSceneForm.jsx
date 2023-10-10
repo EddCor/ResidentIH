@@ -14,7 +14,6 @@ const CreateSceneForm = () => {
   };
 
   const handleCreateScene = async () => {
-    // Ensure that title and image URL are not empty before creating a scene
     if (title.trim() === "" || imageURL.trim() === "") {
       alert("Title and Image URL are required fields.");
       return;
@@ -71,17 +70,27 @@ const CreateSceneForm = () => {
       <h3>Description:</h3>
       {description.map((desc, index) => (
         <div key={index}>
-          <p>{desc}</p>
+          <textarea
+            value={desc}
+            rows={5}
+            cols={50}
+            onChange={(e) => {
+              const updatedDescription = [...description];
+              updatedDescription[index] = e.target.value;
+              setDescription(updatedDescription);
+            }}
+          />
         </div>
       ))}
       <textarea
         value={newDescription}
-        rows={10}
+        rows={5}
         cols={50}
         onChange={(e) => setNewDescription(e.target.value)}
       />
-      <button onClick={handleAddDescription}>Add Description</button>
       <br />
+      <button onClick={handleAddDescription}>Add Description</button>
+
       <button onClick={handleCreateScene}>Create Scene</button>
     </div>
   );

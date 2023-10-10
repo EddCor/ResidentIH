@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const HomePage = () => {
   const [scenes, setScenes] = useState([]);
+  const [currentScene, setCurrentScene] = useState(0);
 
   const fetchAllScenes = async () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/scenes`);
@@ -19,21 +20,22 @@ const HomePage = () => {
   if (scenes.length === 0) {
     return <div>Loading...</div>;
   }
-
-  if (scenes.length === 0) {
-    return <div>Loading...</div>;
-  }
-
-  if (scenes.length === 0) {
-    return <div>Loading...</div>;
-  }
+  const handleButtonClick = () => {
+    setCurrentScene(1);
+  };
+  const handleButtonClick2 = () => {
+    setCurrentScene(0);
+  };
 
   return (
     <div>
       <h1>Welcome Resident IronHack</h1>
-      <h2>{scenes[0].title}</h2>
-      <img src={scenes[0].imgsrc} style={{ maxWidth: "50vw" }} />
-      {scenes[0].description.map((oneLine) => {
+      <button onClick={handleButtonClick}>Update Scene</button>
+      <button onClick={handleButtonClick2}>Update Scene</button>
+
+      <h2>{scenes[currentScene].title}</h2>
+      <img src={scenes[currentScene].imgsrc} style={{ maxWidth: "50vw" }} />
+      {scenes[currentScene].description.map((oneLine) => {
         return (
           <>
             <p>{oneLine}</p>
