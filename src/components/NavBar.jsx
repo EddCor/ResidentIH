@@ -4,11 +4,11 @@ import { useState } from "react";
 
 
 
-export default function Navbar() {
+function NavBar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false)
 
 return (
- 
+
 
     <nav className="navigation">
       <a href="/" className="brand-name">
@@ -20,7 +20,7 @@ return (
           setIsNavExpanded(!isNavExpanded)
         }}
       >
-      
+        {/* hamburger svg code... */}
       </button>
       <div
         className={
@@ -42,5 +42,9 @@ return (
   </nav>
 );
       }
+
+      export default NavBar
+
+
 
 
