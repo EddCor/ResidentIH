@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CreateSceneForm = () => {
   const [title, setTitle] = useState("");

@@ -65,7 +65,7 @@ const UpdateForm = () => {
   const sendUpdatesToAPI = async (updatedData) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/scenes/${selectScene + 1}`,
+        `${import.meta.env.VITE_API_URL}/scenes/${selectScene}`,
         {
           method: "PUT",
           headers: {
@@ -109,7 +109,7 @@ const UpdateForm = () => {
             )}
             {scenes.map((scene, index) => (
               <option
-                //selected={scene.id === selectScene ? true : false}
+                selected={scene.id === selectScene ? true : false}
                 key={scene.id}
                 value={index}
               >
