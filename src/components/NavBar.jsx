@@ -5,29 +5,33 @@ import { useState } from "react";
 
 
 function NavBar() {
-  const [isNavExpanded, setIsNavExpanded] = useState(false)
+  const [isNavExpanded, setIsNavExpanded] = useState(true)
 
 return (
 
 
     <nav className="navigation">
-      <a href="/" className="brand-name">
-      Umbrella Corp®     Our Business is Life Itself
-      </a>
-      <button
+     
+      {/* <button
         className="hamburger"
         onClick={() => {
           setIsNavExpanded(!isNavExpanded)
         }}
       >
        
-      </button>
-      <div
+      </button> */}
+      {/* <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
-      >
+      > */}
       <ul>
+
+        <li> <a href="/" className="brand-name">
+      Umbrella Corp®     Our Business is Life Itself
+      </a>
+
+        </li>
         <li>
           <a href="/">Home</a>
         </li>
@@ -38,7 +42,7 @@ return (
           <a href="/contact">About</a>
         </li>
       </ul>
-    </div>
+    {/* </div> */}
   </nav>
 );
       }
