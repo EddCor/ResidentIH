@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-
-
 const UpdateForm = () => {
   const [scenes, setScenes] = useState([]);
   const [selectScene, setSelectScene] = useState();
@@ -168,9 +166,15 @@ const UpdateForm = () => {
                 </div>
               ))}
 
-              <button onClick={handleAddDescription}>Add Description</button>
-              <button onClick={handleSaveClick}>Save</button>
-              <button onClick={handleCancelClick}>Cancel</button>
+              <button className="objectButton" onClick={handleAddDescription}>
+                Add Description
+              </button>
+              <button className="objectButton" onClick={handleSaveClick}>
+                Save
+              </button>
+              <button className="objectButton" onClick={handleCancelClick}>
+                Cancel
+              </button>
             </>
           ) : (
             <>

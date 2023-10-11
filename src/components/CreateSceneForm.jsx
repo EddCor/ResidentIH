@@ -89,9 +89,13 @@ const CreateSceneForm = () => {
         onChange={(e) => setNewDescription(e.target.value)}
       />
       <br />
-      <button onClick={handleAddDescription}>Add Description</button>
+      <button className="objectButton" onClick={handleAddDescription}>
+        Add Description
+      </button>
 
-      <button onClick={handleCreateScene}>Create Scene</button>
+      <button className="objectButton" onClick={handleCreateScene}>
+        Create Scene
+      </button>
     </div>
   );
 };
