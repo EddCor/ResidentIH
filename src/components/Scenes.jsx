@@ -49,7 +49,7 @@ function Scenes() {
 
 const currentScene = scenes[currentSceneIndex];
 
-
+console.log("here",currentScene)
 
 return (
     <div>
@@ -58,10 +58,13 @@ return (
         <button className="navigationButtons" key={index} onClick={() => handleButtonClick(oneScene)}>{scenes[oneScene].title}</button>
       ))}<br /> 
       <div className='storyComponents' >
-        <img className='storyImages' src={currentScene.imgsrc} style={{ maxWidth: '50vw' }} />
-      <div className='storyText'>{currentScene.description.map((oneLine, index) => (
-        <p key={index}>{oneLine}</p>
-      ))}</div>
+        <img className='storyImages' src={currentScene.imgsrc}  />
+      <div    >{currentScene.description.map((oneLine, index) => (
+        <p className='storyText'   key={index}>{oneLine}</p>
+      ))}
+      
+      
+      </div>
       </div>
       
 
