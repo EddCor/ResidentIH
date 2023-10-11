@@ -6,9 +6,8 @@ const CreateNewStory = () => {
   return (
     <>
       <h1> Create or update story</h1>
-      {
-        //<CreateSceneForm />
-      }
+
+      <CreateSceneForm />
 
       <h2> choose story to edit</h2>
       <UpdateForm />
