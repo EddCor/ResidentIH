@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -21,7 +20,7 @@ const UpdateForm = () => {
   };
 
   const handleSceneSelect = (e) => {
-    const selectedId = e.target.value - 1;
+    const selectedId = parseInt(e.target.value);
     setSelectScene(selectedId);
     setIsEditing(false);
     setEditedTitle("");
@@ -62,12 +61,13 @@ const UpdateForm = () => {
     setEditedTitle("");
     setEditedImageURL("");
     setEditedDescription(scenes[selectScene].description || []);
+    setSelectScene(undefined);
   };
 
   const sendUpdatesToAPI = async (updatedData) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/scenes/${selectScene + 1}`,
+        `${import.meta.env.VITE_API_URL}/scenes/${selectScene}`,
         {
           method: "PUT",
           headers: {
@@ -88,37 +88,6 @@ const UpdateForm = () => {
     }
   };
 
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    const payload = { title, description };
-
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/projects${
-          isUpdate ? `/${project.id}` : ""
-        }`,
-        {
-          method: isUpdate ? "PUT" : "POST",
-          body: JSON.stringify(payload),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
-      console.log(response);
-      if (response.ok) {
-        const currentProject = await response.json();
-        console.log(currentProject);
-        navigate(`/projects/${currentProject.id}`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     fetchAllScenes();
   }, []);
@@ -132,12 +101,20 @@ const UpdateForm = () => {
       {!isEditing && (
         <>
           <label htmlFor="scene-select">Choose a scene to edit:</label>
-          <select name="scene" id="scene-select" onChange={handleSceneSelect}>
+          <select
+            name="selectScene"
+            id="scene-select"
+            onChange={handleSceneSelect}
+          >
             {selectScene === undefined && (
-              <option value="">--Please choose an option--</option>
+              <option value="">-Please choose an option-</option>
             )}
             {scenes.map((scene, index) => (
-              <option key={scene.id} value={index + 1}>
+              <option
+                selected={scene.id === selectScene ? true : false}
+                key={scene.id}
+                value={index}
+              >
                 {scene.title}
               </option>
             ))}

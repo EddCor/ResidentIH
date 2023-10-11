@@ -6,7 +6,6 @@ import CreateNewStory from "./pages/CreateNewStory";
 import NavBar from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";
 
-
 function App() {
   const [count, setCount] = useState(0);
 
