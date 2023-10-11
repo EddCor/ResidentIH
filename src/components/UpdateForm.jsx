@@ -34,11 +34,20 @@ const UpdateForm = () => {
 
   const handleSaveClick = () => {
     setIsEditing(false);
+
+    const linkedSceneIds = scenes
+      .filter(
+        (_, index) => document.getElementById(`linkedScene-${index}`).checked
+      )
+      .map((scene) => scene.id);
+
     const updatedData = {
       title: editedTitle,
       imgsrc: editedImageURL,
       description: editedDescription,
+      linkedScenes: linkedSceneIds,
     };
+
     sendUpdatesToAPI(updatedData);
   };
 
@@ -165,7 +174,23 @@ const UpdateForm = () => {
                   </button>
                 </div>
               ))}
-
+              <div>
+                <h3>linked scenes</h3>
+                {scenes.map((scene, index) => (
+                  <div key={scene.id}>
+                    <input
+                      type="checkbox"
+                      id={`linkedScene-${index}`}
+                      defaultChecked={scenes[
+                        selectScene
+                      ]?.linkedScenes?.includes(scene.id)}
+                    />
+                    <label htmlFor={`linkedScene-${index}`}>
+                      {scene.title}
+                    </label>
+                  </div>
+                ))}
+              </div>
               <button className="objectButton" onClick={handleAddDescription}>
                 Add Description
               </button>
@@ -190,7 +215,9 @@ const UpdateForm = () => {
                   <li key={index}>{desc}</li>
                 ))}
               </ul>
-              <button onClick={handleEditClick}>Edit</button>
+              <button className="objectButton" onClick={handleEditClick}>
+                Edit
+              </button>
             </>
           )}
         </>

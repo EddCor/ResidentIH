@@ -5,6 +5,22 @@ const CreateSceneForm = () => {
   const [imageURL, setImageURL] = useState("");
   const [description, setDescription] = useState([]);
   const [newDescription, setNewDescription] = useState("");
+  const [allScenes, setAllScenes] = useState([]);
+  const [linkedScenes, setLinkedScenes] = useState([]);
+
+  useEffect(() => {
+    const fetchScenes = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/scenes`);
+        const data = await response.json();
+        setAllScenes(data);
+      } catch (error) {
+        console.error("Error fetching scenes:", error);
+      }
+    };
+
+    fetchScenes();
+  }, []);
 
   const handleAddDescription = () => {
     if (newDescription.trim() !== "") {
@@ -23,6 +39,7 @@ const CreateSceneForm = () => {
       title: title,
       imgsrc: imageURL,
       description: description,
+      linkedScenes: linkedScenes.map((scene) => scene.id),
     };
 
     try {
@@ -40,6 +57,7 @@ const CreateSceneForm = () => {
         setImageURL("");
         setDescription([]);
         setNewDescription("");
+        setLinkedScenes([]);
       } else {
         console.error("Error creating scene.");
       }
@@ -92,6 +110,27 @@ const CreateSceneForm = () => {
       <button className="objectButton" onClick={handleAddDescription}>
         Add Description
       </button>
+
+      <h3>Linked Scenes:</h3>
+      {allScenes.map((scene) => (
+        <div key={scene.id}>
+          <input
+            type="checkbox"
+            id={`linkedScene-${scene.id}`}
+            checked={linkedScenes.includes(scene)}
+            onChange={() => {
+              if (linkedScenes.includes(scene)) {
+                setLinkedScenes((prevScenes) =>
+                  prevScenes.filter((s) => s.id !== scene.id)
+                );
+              } else {
+                setLinkedScenes((prevScenes) => [...prevScenes, scene]);
+              }
+            }}
+          />
+          <label htmlFor={`linkedScene-${scene.id}`}>{scene.title}</label>
+        </div>
+      ))}
 
       <button className="objectButton" onClick={handleCreateScene}>
         Create Scene
