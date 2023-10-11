@@ -2,16 +2,11 @@ import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 import { useState } from "react";
 
-
-
 function NavBar() {
-  const [isNavExpanded, setIsNavExpanded] = useState(true)
+  const [isNavExpanded, setIsNavExpanded] = useState(true);
 
-return (
-
-
+  return (
     <nav className="navigation">
-     
       {/* <button
         className="hamburger"
         onClick={() => {
@@ -26,29 +21,25 @@ return (
         }
       > */}
       <ul>
-
-        <li> <a href="/" className="brand-name">
-      Umbrella Corp®     Our Business is Life Itself
-      </a>
-
+        <li>
+          {" "}
+          <Link to="/" className="brand-name">
+            Umbrella Corp® Our Business is Life Itself
+          </Link>
         </li>
         <li>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="/createnewstory/">Create New Story</a>
+          <Link to="/createnewstory/">Create New Story</Link>
         </li>
         <li>
-          <a href="/contact">About</a>
+          <Link to="/contact">About</Link>
         </li>
       </ul>
-    {/* </div> */}
-  </nav>
-);
-      }
+      {/* </div> */}
+    </nav>
+  );
+}
 
-      export default NavBar
-
-
-
-
+export default NavBar;
