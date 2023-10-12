@@ -19,7 +19,6 @@ function Scenes() {
     if (response.ok) {
       const allObjects = await response.json();
       setObjects(allObjects);
-      console.log(allObjects);
     }
   };
 

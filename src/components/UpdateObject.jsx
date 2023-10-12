@@ -71,7 +71,6 @@ const UpdateObject = () => {
       );
 
       if (response.ok) {
-        console.log("Object updated successfully!");
         setSelectedObject("");
         setName("");
         setImgSrc("");

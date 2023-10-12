@@ -85,7 +85,6 @@ const UpdateForm = () => {
       );
 
       if (response.ok) {
-        console.log("Data updated successfully!");
         fetchAllScenes();
       } else {
         console.error("Error updating data.");

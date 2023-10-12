@@ -44,7 +44,6 @@ const CreateObject = () => {
       });
 
       if (response.ok) {
-        console.log("Object created successfully!");
         setSceneId("");
         setName("");
         setImgSrc("");

@@ -32,7 +32,6 @@ const DeleteObject = () => {
         );
 
         if (response.ok) {
-          console.log("Object deleted successfully!");
           setAllObjects(allObjects.filter((object) => object.id !== objectId));
         } else {
           console.error("Error deleting object.");

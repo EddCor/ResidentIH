@@ -32,7 +32,6 @@ const DeleteScene = () => {
         );
 
         if (response.ok) {
-          console.log("Scene deleted successfully!");
           setAllScenes(allScenes.filter((scene) => scene.id !== sceneId));
         } else {
           console.error("Error deleting scene.");
