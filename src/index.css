@@ -15,13 +15,10 @@
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
+
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
-}
+
 
 body {
   margin: 0;
@@ -49,18 +46,6 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-
-
-
-
 
 .navigationButtons{
 	box-shadow:inset 0px 1px 0px 0px #f5978e;
@@ -80,17 +65,18 @@ button:focus-visible {
 	margin-bottom: 10px;
 	
 }
+
 .navigationButtons:hover {
 	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
 	background-color:#c62d1f;
 }
+
 .navigationButtons:active {
 	position:relative;
 	top:1px;  
 }
 
 .objectButton{
-
 	box-shadow:inset 0px 1px 0px 0px #f5978e;
 	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
 	background-color:#f24537;
@@ -127,7 +113,6 @@ button:focus-visible {
 
 }
 
-
 .storyImages{
 	width: 900px;
 	margin-right: 10px;
@@ -140,7 +125,6 @@ button:focus-visible {
 	text-align: right;
 	/* margin-right: 5px; */
 	text-align: justify;
-	
 }
 
 
@@ -152,9 +136,7 @@ button:focus-visible {
   letter-spacing: .15em; 
   animation: 
     typing 3.5s steps(40, end);
-   
 }
-
 
 @keyframes typing {
   from { width: 0 }

@@ -7,37 +7,29 @@ function NavBar() {
 
   return (
     <nav className="navigation">
-      {/* <button
-        className="hamburger"
-        onClick={() => {
-          setIsNavExpanded(!isNavExpanded)
-        }}
-      >
-       
-      </button> */}
-      {/* <div
-        className={
-          isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
-        }
-      > */}
       <ul>
         <li>
           {" "}
-          <Link to="/" className="brand-name">
+          <Link to="/" className="Link">
             Umbrella Corp® Our Business is Life Itself
           </Link>
         </li>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" className="Link">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/createnewstory/">Create New Story</Link>
+          <Link to="/createnewstory/ " className="Link">
+            Create New Story
+          </Link>
         </li>
         <li>
-          <Link to="/contact">About</Link>
+          <Link to="/contact " className="Link">
+            About
+          </Link>
         </li>
       </ul>
-      {/* </div> */}
     </nav>
   );
 }
