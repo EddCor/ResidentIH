@@ -7,7 +7,7 @@ import UpdateObject from "../components/UpdateObject";
 import DeleteObject from "../components/DeleteObject";
 
 const CreateNewStory = () => {
-  const [selectedOperation, setSelectedOperation] = useState(); // Initial state is an empty string
+  const [selectedOperation, setSelectedOperation] = useState();
 
   return (
     <>
