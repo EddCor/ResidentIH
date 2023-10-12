@@ -65,17 +65,18 @@ button {
 	margin-bottom: 10px;
 	
 }
+
 .navigationButtons:hover {
 	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
 	background-color:#c62d1f;
 }
+
 .navigationButtons:active {
 	position:relative;
 	top:1px;  
 }
 
 .objectButton{
-
 	box-shadow:inset 0px 1px 0px 0px #f5978e;
 	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
 	background-color:#f24537;
@@ -112,7 +113,6 @@ button {
 
 }
 
-
 .storyImages{
 	width: 800px;
 	margin-right: 10px;
@@ -125,11 +125,6 @@ button {
 	text-align: right;
 	margin-right: 5px;
 	text-align: justify;
-	
-}
-
-
-.storyText{
     overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid rgba(255, 166, 0, 0.048); /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
@@ -140,7 +135,6 @@ button {
    
 }
 
-/* typing effect */
 @keyframes typing {
   from { width: 0 }
   
