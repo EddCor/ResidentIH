@@ -5,9 +5,9 @@ const UpdateObject = () => {
   const [name, setName] = useState("");
   const [imgsrc, setImgSrc] = useState("");
   const [description, setDescription] = useState("");
-  const [sceneId, setSceneId] = useState(""); // Added sceneId state
+  const [sceneId, setSceneId] = useState("");
   const [allObjects, setAllObjects] = useState([]);
-  const [allScenes, setAllScenes] = useState([]); // Added allScenes state
+  const [allScenes, setAllScenes] = useState([]);
 
   useEffect(() => {
     const fetchObjects = async () => {
@@ -31,7 +31,7 @@ const UpdateObject = () => {
     };
 
     fetchObjects();
-    fetchScenes(); // Fetch scenes data
+    fetchScenes();
   }, []);
 
   const handleSelectChange = (event) => {
@@ -42,7 +42,7 @@ const UpdateObject = () => {
     setName(selectedObjectData.name);
     setImgSrc(selectedObjectData.imgsrc);
     setDescription(selectedObjectData.description);
-    setSceneId(selectedObjectData.sceneId); // Set the sceneId
+    setSceneId(selectedObjectData.sceneId);
   };
 
   const handleUpdateObject = async () => {
