@@ -32,7 +32,6 @@ const DeleteObject = () => {
         );
 
         if (response.ok) {
-          console.log("Object deleted successfully!");
           setAllObjects(allObjects.filter((object) => object.id !== objectId));
         } else {
           console.error("Error deleting object.");
@@ -44,7 +43,7 @@ const DeleteObject = () => {
   };
 
   return (
-    <div>
+    <div className="modifyComponent">
       <h2>Delete Objects</h2>
       <ul style={{ listStyleType: "none" }}>
         {allObjects.map((object) => (
@@ -53,6 +52,7 @@ const DeleteObject = () => {
             <button
               className="objectButton"
               onClick={() => handleDeleteObject(object.id)}
+              style={{ marginLeft: "1vw" }}
             >
               Delete
             </button>

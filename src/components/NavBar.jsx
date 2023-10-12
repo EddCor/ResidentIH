@@ -15,13 +15,8 @@ function NavBar() {
           </Link>
         </li>
         <li>
-          <Link to="/" className="Link">
-            Home
-          </Link>
-        </li>
-        <li>
           <Link to="/createnewstory/ " className="Link">
-            Create New Story
+            Modify
           </Link>
         </li>
         <li>

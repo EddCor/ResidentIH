@@ -44,7 +44,6 @@ const CreateObject = () => {
       });
 
       if (response.ok) {
-        console.log("Object created successfully!");
         setSceneId("");
         setName("");
         setImgSrc("");
@@ -60,7 +59,7 @@ const CreateObject = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <div className="modifyComponent">
       <h2>Create a New Object</h2>
       <label htmlFor="sceneId">Scene:</label>
       <select
@@ -75,7 +74,6 @@ const CreateObject = () => {
           </option>
         ))}
       </select>
-      <br />
       <label htmlFor="name">Name:</label>
       <input
         type="text"
@@ -83,7 +81,6 @@ const CreateObject = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <br />
       <label htmlFor="imgsrc">Image URL:</label>
       <input
         type="text"
@@ -91,7 +88,6 @@ const CreateObject = () => {
         value={imgsrc}
         onChange={(e) => setImgSrc(e.target.value)}
       />
-      <br />
       <label htmlFor="description">Description:</label>
       <textarea
         id="description"
@@ -100,7 +96,6 @@ const CreateObject = () => {
         cols={50}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <br />
       <button className="objectButton" onClick={handleCreateObject}>
         Create Object
       </button>

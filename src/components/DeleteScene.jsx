@@ -32,7 +32,6 @@ const DeleteScene = () => {
         );
 
         if (response.ok) {
-          console.log("Scene deleted successfully!");
           setAllScenes(allScenes.filter((scene) => scene.id !== sceneId));
         } else {
           console.error("Error deleting scene.");
@@ -44,7 +43,7 @@ const DeleteScene = () => {
   };
 
   return (
-    <div>
+    <div className="modifyComponent">
       <h2>Delete Scenes</h2>
       <ul style={{ listStyleType: "none" }}>
         {allScenes.map((scene) => (
@@ -53,6 +52,7 @@ const DeleteScene = () => {
             <button
               className="objectButton"
               onClick={() => handleDeleteScene(scene.id)}
+              style={{ marginLeft: "1vw" }}
             >
               Delete
             </button>

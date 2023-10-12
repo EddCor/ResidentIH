@@ -19,7 +19,6 @@ function Scenes() {
     if (response.ok) {
       const allObjects = await response.json();
       setObjects(allObjects);
-      console.log(allObjects);
     }
   };
 
@@ -40,7 +39,7 @@ function Scenes() {
 
   return (
     <div>
-      <h2>{currentScene.title}</h2>
+      <h2>You're currently at: {currentScene.title}</h2>
       {currentScene.linkedScenes.map((oneScene, index) => (
         <button
           className="navigationButtons"
@@ -69,13 +68,12 @@ function Scenes() {
       {objects
         .filter((object) => object.sceneId === currentScene.id)
         .map((object, index) => (
-          <div
-            key={index}
-            className="objectContainer"
-            onMouseEnter={() => setHoveredObject(object)}
-            onMouseLeave={() => setHoveredObject(null)}
-          >
-            <button className="objectButton">
+          <div key={index} className="objectContainer">
+            <button
+              className="objectButton"
+              onMouseEnter={() => setHoveredObject(object)}
+              onMouseLeave={() => setHoveredObject(null)}
+            >
               <img
                 src={object.imgsrc}
                 alt={object.name}

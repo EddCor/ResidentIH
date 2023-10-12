@@ -71,12 +71,11 @@ const UpdateObject = () => {
       );
 
       if (response.ok) {
-        console.log("Object updated successfully!");
         setSelectedObject("");
         setName("");
         setImgSrc("");
         setDescription("");
-        setSceneId(""); // Clear sceneId after update
+        setSceneId("");
       } else {
         console.error("Error updating object.");
       }
@@ -90,7 +89,7 @@ const UpdateObject = () => {
   }
 
   return (
-    <div>
+    <div className="modifyComponent">
       <h2>Update Object</h2>
       <label htmlFor="selectedObject">Select Object:</label>
       <select
@@ -105,7 +104,6 @@ const UpdateObject = () => {
           </option>
         ))}
       </select>
-      <br />
       <label htmlFor="name">Name:</label>
       <input
         type="text"
@@ -113,7 +111,6 @@ const UpdateObject = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <br />
       <label htmlFor="imgsrc">Image URL:</label>
       <input
         type="text"
@@ -121,7 +118,6 @@ const UpdateObject = () => {
         value={imgsrc}
         onChange={(e) => setImgSrc(e.target.value)}
       />
-      <br />
       <label htmlFor="description">Description:</label>
       <textarea
         id="description"
@@ -130,7 +126,6 @@ const UpdateObject = () => {
         cols={50}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <br />
       <label htmlFor="sceneId">Select the scene for this object:</label>
       <select
         id="sceneId"
@@ -143,7 +138,6 @@ const UpdateObject = () => {
           </option>
         ))}
       </select>
-      <br />
       <button className="objectButton" onClick={handleUpdateObject}>
         Update Object
       </button>

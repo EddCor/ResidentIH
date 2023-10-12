@@ -1,9 +1,9 @@
-const Scene = () => {
+const About = () => {
   return (
     <>
-      <h1>Welcome to our Scene Page</h1>
+      <h1>404</h1>
     </>
   );
 };
 
-export default Scene;
+export default About;

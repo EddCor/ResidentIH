@@ -85,7 +85,6 @@ const UpdateForm = () => {
       );
 
       if (response.ok) {
-        console.log("Data updated successfully!");
         fetchAllScenes();
       } else {
         console.error("Error updating data.");
@@ -104,7 +103,7 @@ const UpdateForm = () => {
   }
 
   return (
-    <>
+    <div className="modifyComponent">
       {!isEditing && (
         <>
           <label htmlFor="scene-select">Choose a scene to edit:</label>
@@ -222,7 +221,7 @@ const UpdateForm = () => {
           )}
         </>
       )}
-    </>
+    </div>
   );
 };
 
