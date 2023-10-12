@@ -69,13 +69,12 @@ function Scenes() {
       {objects
         .filter((object) => object.sceneId === currentScene.id)
         .map((object, index) => (
-          <div
-            key={index}
-            className="objectContainer"
-            onMouseEnter={() => setHoveredObject(object)}
-            onMouseLeave={() => setHoveredObject(null)}
-          >
-            <button className="objectButton">
+          <div key={index} className="objectContainer">
+            <button
+              className="objectButton"
+              onMouseEnter={() => setHoveredObject(object)}
+              onMouseLeave={() => setHoveredObject(null)}
+            >
               <img
                 src={object.imgsrc}
                 alt={object.name}
