@@ -1,10 +1,10 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Scenes() {
   const [scenes, setScenes] = useState([]);
   const [currentSceneIndex, setCurrentSceneIndex] = useState(0);
   const [objects, setObjects] = useState([]);
+  const [hoveredObject, setHoveredObject] = useState(null);
 
   const fetchAllScenes = async () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/scenes`);
@@ -52,7 +52,11 @@ function Scenes() {
       ))}
       <br />
       <div className="storyComponents">
-        <img className="storyImages" src={currentScene.imgsrc} />
+        <img
+          className="storyImages"
+          src={currentScene.imgsrc}
+          alt={currentScene.title}
+        />
         <div>
           {currentScene.description.map((oneLine, index) => (
             <p className="storyText" key={index}>
@@ -65,19 +69,27 @@ function Scenes() {
       {objects
         .filter((object) => object.sceneId === currentScene.id)
         .map((object, index) => (
-          <button
-            className="objectButton"
+          <div
             key={index}
-            onClick={() => handleButtonClick()}
+            className="objectContainer"
+            onMouseEnter={() => setHoveredObject(object)}
+            onMouseLeave={() => setHoveredObject(null)}
           >
-            <img
-              src={object.imgsrc}
-              alt={object.name}
-              style={{ maxWidth: "3vw", marginRight: "0.5vw " }}
-            />
-            {object.name}
-          </button>
+            <button className="objectButton">
+              <img
+                src={object.imgsrc}
+                alt={object.name}
+                style={{ maxWidth: "3vw", marginRight: "0.5vw" }}
+              />
+              {object.name}
+            </button>
+          </div>
         ))}
+      {hoveredObject && (
+        <div className="descriptionDiv">
+          <p>{hoveredObject.description}</p>
+        </div>
+      )}
     </div>
   );
 }
