@@ -110,31 +110,24 @@ button {
 	flex-direction: row;
 	justify-content: space-evenly;
 	font-family: 'Anonymous Pro', monospace;
+	align-items: center;
 
 }
 
 .storyImages{
-	width: 900px;
+	max-width: 40vw;
 	margin-right: 10px;
 	height: 400px
 
 }
 
 .storyText{
-	width: 800px;
+	width: 40vw;
 	text-align: right;
 	margin-right: 5px;
 	text-align: justify;
 }
-	.storyText{
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid rgba(255, 166, 0, 0.048); /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  /* margin: 0 10px 0 0; Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: 
-    typing 3.5s steps(40, end);
-}
+
 
 @keyframes typing {
   from { width: 0 }

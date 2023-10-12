@@ -40,7 +40,7 @@ function Scenes() {
 
   return (
     <div>
-      <h2>{currentScene.title}</h2>
+      <h2>You're currently at: {currentScene.title}</h2>
       {currentScene.linkedScenes.map((oneScene, index) => (
         <button
           className="navigationButtons"
