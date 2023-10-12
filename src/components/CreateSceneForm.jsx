@@ -67,7 +67,7 @@ const CreateSceneForm = () => {
   };
 
   return (
-    <div>
+    <div className="modifyComponent">
       <h2>Create a New Scene</h2>
       <label htmlFor="title">Title:</label>
       <input
@@ -76,7 +76,6 @@ const CreateSceneForm = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <br />
       <label htmlFor="imageURL">Image URL:</label>
       <input
         type="text"
@@ -84,7 +83,6 @@ const CreateSceneForm = () => {
         value={imageURL}
         onChange={(e) => setImageURL(e.target.value)}
       />
-      <br />
       <h3>Description:</h3>
       {description.map((desc, index) => (
         <div key={index}>
@@ -106,7 +104,6 @@ const CreateSceneForm = () => {
         cols={50}
         onChange={(e) => setNewDescription(e.target.value)}
       />
-      <br />
       <button className="objectButton" onClick={handleAddDescription}>
         Add Description
       </button>

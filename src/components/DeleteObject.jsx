@@ -44,7 +44,7 @@ const DeleteObject = () => {
   };
 
   return (
-    <div>
+    <div className="modifyComponent">
       <h2>Delete Objects</h2>
       <ul style={{ listStyleType: "none" }}>
         {allObjects.map((object) => (
@@ -53,6 +53,7 @@ const DeleteObject = () => {
             <button
               className="objectButton"
               onClick={() => handleDeleteObject(object.id)}
+              style={{ marginLeft: "1vw" }}
             >
               Delete
             </button>
