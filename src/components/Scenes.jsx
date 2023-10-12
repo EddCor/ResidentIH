@@ -28,7 +28,16 @@ function Scenes() {
   }, []);
 
   const handleButtonClick = (index) => {
+    setHoveredObject(null);
     setCurrentSceneIndex(index);
+  };
+
+  const handleButtonClickObject = (clickedObject) => {
+    if (hoveredObject === clickedObject) {
+      setHoveredObject(null);
+    } else {
+      setHoveredObject(clickedObject);
+    }
   };
 
   if (scenes.length === 0) {
@@ -38,7 +47,7 @@ function Scenes() {
   const currentScene = scenes[currentSceneIndex];
 
   return (
-    <div>
+    <div className="scenePageMainDiv">
       <h2>You're currently at: {currentScene.title}</h2>
       {currentScene.linkedScenes.map((oneScene, index) => (
         <button
@@ -56,7 +65,7 @@ function Scenes() {
           src={currentScene.imgsrc}
           alt={currentScene.title}
         />
-        <div>
+        <div className="storyTextContainer">
           {currentScene.description.map((oneLine, index) => (
             <p className="storyText" key={index}>
               {oneLine}
@@ -71,13 +80,16 @@ function Scenes() {
           <div key={index} className="objectContainer">
             <button
               className="objectButton"
-              onMouseEnter={() => setHoveredObject(object)}
-              onMouseLeave={() => setHoveredObject(null)}
+              onClick={() => handleButtonClickObject(object)}
             >
               <img
                 src={object.imgsrc}
                 alt={object.name}
-                style={{ maxWidth: "3vw", marginRight: "0.5vw" }}
+                style={{
+                  maxHeight: "3vw",
+                  maxWidth: "3vw",
+                  marginRight: "1.5vw",
+                }}
               />
               {object.name}
             </button>

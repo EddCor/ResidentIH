@@ -54,6 +54,7 @@
 	  text-decoration:none;
 	  text-shadow:0px 1px 0px #810E05;
 	  margin-bottom: 10px;
+	  margin-right: 2vw;
   }
   .navigationButtons:hover {
 	  background:linear-gradient(to bottom, #C62D1F 5%, #F24537 100%);
@@ -63,27 +64,32 @@
 	  position:relative;
 	  top:1px;
   }
-  .objectButton{
-	  box-shadow:inset 0px 1px 0px 0px #F5978E;
-	  background:linear-gradient(to bottom, #F24537 5%, #C62D1F 100%);
-	  background-color:#f24537;
-	  border-radius:6px;
-	  border:1px solid #D02718;
-	  display:inline-block;
-	  cursor:pointer;
-	  color:#ffffff;
-	  font-family:Arial;
-	  font-size:15px;
-	  font-weight:bold;
-	  padding:6px 24px;
-	  text-decoration:none;
-	  text-shadow:0px 1px 0px #810E05;
+  .objectButton {
+	box-shadow: inset 0px 1px 0px 0px #F5978E;
+	background: linear-gradient(to bottom, #F24537 5%, #C62D1F 100%);
+	background-color: #f24537;
+	border-radius: 6px;
+	border: 1px solid #D02718;
+	display: inline-flex;
+	flex-direction: row; 
+	justify-content: center; 
+	align-items: center; 
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #810E05;
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 2vw;
   }
+  
   .objectButton:hover {
 	  background:linear-gradient(to bottom, #C62D1F 5%, #F24537 100%);
 	  background-color:#c62d1f;
+	  
   }
   .objectButton:active {
 	  position:relative;
@@ -95,10 +101,13 @@
 	  justify-content: space-evenly;
 	  font-family: 'Anonymous Pro', monospace;
 	  align-items: center;
+	  margin-top: 1.5vw;
   }
   .storyImages{
 	  max-width: 40vw;
 	  margin-right: 10px;
+	  border-radius:6px;
+	  border:3px solid white;
   }
   .storyText{
 	  width: 40vw;
@@ -106,9 +115,26 @@
 	  margin-right: 5px;
 	  text-align: justify;
   }
+
   .modifyComponent {
 	  display: flex;
 	  flex-direction: column; /* To stack elements vertically */
 	  align-items: center;
 	  margin-top: 1vw;
 	}
+	.descriptionDiv{
+		display: flex;
+		border-radius:6px;
+		border:1px solid #D02718;
+		max-width: 50vw;
+		justify-content: center;
+		align-items: center;
+		margin:auto;
+		margin-top: 1vw;
+		padding: 0.5vw;
+	}
+.storyTextContainer{
+	border-radius:6px;
+		border:1px solid #D02718;
+		padding: 1vw;	
+}
