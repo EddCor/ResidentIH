@@ -42,7 +42,6 @@ const HomePage = () => {
           }}
         >
           <video
-            autoPlay
             controls
             id="mainVideo"
             style={{ width: "100%", height: "100%" }}
