@@ -6,13 +6,19 @@
     width: 100vw;
 }
 
-
+.Link {
+    color: black;
+    
+  }
+  &:hover {
+    color: black
+  }
 
 .navigation ul{
     display: flex;
     list-style: none;
     height: 100%;
-
+    color: black;
     border: 1px solid black;
     justify-content: space-evenly;
     align-items: center;
