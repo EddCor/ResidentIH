@@ -129,39 +129,39 @@ button:focus-visible {
 
 
 .storyImages{
-	width: 800px;
+	width: 900px;
 	margin-right: 10px;
-	height: 600px
+	height: 400px
 
 }
 
 .storyText{
-	width: 800px;
+	width: 500px;
 	text-align: right;
-	margin-right: 5px;
+	/* margin-right: 5px; */
 	text-align: justify;
 	
 }
 
 
 .storyText{
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid rgba(255, 166, 0, 0.048); /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  /* margin: 0 10px 0 0; Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
+    overflow: hidden; 
+  border-right: .15em solid rgba(255, 166, 0, 0.048);
+  white-space: nowrap; 
+ 
+  letter-spacing: .15em; 
   animation: 
     typing 3.5s steps(40, end);
    
 }
 
-/* typing effect */
+
 @keyframes typing {
   from { width: 0 }
   
 }
 
-/* typewriter cursor effect */
+
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: rgba(255, 166, 0, 0.049); }
